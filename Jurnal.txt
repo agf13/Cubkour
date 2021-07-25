@@ -1,0 +1,44 @@
+Legenda:
+	¤ Cubvin - personajul principal, numele player-ului
+	¤ CubvinSoul - sufletul personajului. (defapt doar un alt cub care poate trece prin orice, folosit la...vedeti
+	voi mai jos)
+
+6 apr 2018:
+		An inceput jocul acum 3 zile cand am mers la un prieten sa lucram fiecare la ceva. Am inceput cu codul de 
+	miscare testat pe un cub ce se afla pe o platforma (un cup mai lung). Cam atat am facut la intalnirea de lucru
+	legat de joc, dar mi-a starnit cheful de a lucra mai des la el. Urmatoare zi numai asta am facut.
+		Ajungand la ziua de azi... FINAALLY! Am stat 1/2 din zi sa ma gandesc cum sa imi fac cubul sa treaca
+	prin pereti si totusi sa recunoasca ca trece prin ei. Am adaugat un alt cub, CubvinSoul, care sa se miste 			deodata cu Cubvin, el avand rolul de a putea interactiona cu obiecte. Fiind setat ca un "copil" de-al lui
+	Cubvin, daca dezactivam "detectCollisions" a lui Cubvin, nici sufletuli lui nu mai putea interactiona cu 
+	obiecte. Si deci, 1/2 de zi mai tarziu m-a trasnit: dar daca as dezactiva "BoxCollider"-ul lui Cubvin, lasad
+	"detectCollisions"-ul in paca :-? ... Si asa a functionat. Acum ca pot trece prin obiecte si sa recunsoc prin
+	ce trec, pot lucra la skill-ul denumit "BillCipher" (nume luat de la BillCipher din desenul GravityFalls)
+	si sa nu il las sa treaca prin anumite ziduri (ca in desen, exsita campuri de forta asupra carora nu are putere).
+	Cand le va atinge, "BoxCollider"-ul se va reactiva.
+
+11 apr 2018:
+	(m-am gandit sa mai scriu si pe aici cate ceva)
+	De 2 zile ca chinui sa fac ca BillCipher sa apara si sa dispara cand imi convine. Aparent daca ii dai 		SetActive(false), nu il mai poti gasi cu GameObject.Find(""). Pentru asta am creeat un obiect invizibil
+	caruia i-am pus un script pentru initializarea obiectelor carora voi vrea sa le dau SetActive(false).
+	Tot acolo presupun ca voi pune si initializarile obiectelor
+
+	*5 ore mai tarziu*
+	Se pare ca mi-a luat mai mult decat ma asteptam sa pot apela cum trebuie obiectele retinute in Scriptul de 
+	pe obiectul invizibil (care e defapt o sfera) de care vorbeam mai sus. Se pare ca pentru a accesa obiectele
+	instantiate pe un script dintr-ul alt obiect, chiar trebuie sa dai:
+	GameObject.Find("acelAltObicect").GetComponent<ScriptulPeCareIlVoiai>();
+	Eu initial nu mai cautam obiectul, ci doar componenta. In acest caz era clar ca nu mi se initializeaza variabile
+	corespunzatoare obiectelor pt a le folosi mai incolo. *facePalm* (5 degete = 5 ore).
+	Deeci, ar trebui sa pot rezolva problema cu Bill acum. :3
+
+.
+.
+.
+
+16 mai 2018:
+	Insfarsit am reusit sa duc jocul la o forma prezentabila. Am un tutorial, un nivel si un meniu. Nivelul incepe 	
+	imediat ce termini tutorialul sau daca dai skip la tutorial apasand tastele T+L+1 . Nivelul 1 consta in 
+	colecatarea unei chei de 9 ori. Odata luata cheia, ea se va teleporta random intr-una din cele 9 pozitii 
+	stabilite. Odata colectate 9, un portal (adica un cup cu imagine de portal) va aparea pe una dintre placile
+	goale (cea cu Bill), portal ce te va duce din nou la meniu... Da, stiu. Nu cea mai buna idee de final de nivel,
+	dar mai bine decat nimic.
